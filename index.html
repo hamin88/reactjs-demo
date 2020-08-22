@@ -5,8 +5,7 @@
   <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
   <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
   <body>
-  
-    <div id="ip"></div>	  
+   
     <div id="mydiv"></div>
 
     <script type="text/babel">
@@ -15,7 +14,9 @@
 	constructor(props) {
         	super(props);
         	this.state = {
-            		ip: '3' 
+            		ip: '',
+		    	city:'',
+		    	country:''
         	};
     	}   
 	 handleChange = (e) =>{ 
@@ -35,13 +36,15 @@
 		(result) => {
 		  console.log(result); 
 		  this.setState({
-		    ip: result.ip
+		    ip: result.ip,
+		    city:result.city,
+		    country:result.country
 		  });
 	        });
   	}
         render() {
 	 	const {ip} = this.state;	  	   	  
-          	return <input type="text" value={this.state.ip} onChange={this.handleChange}/>         
+          	return <input type="text" value={this.state.ip} onChange={this.handleChange}/><input type="text" value={this.state.city},{this.state.country}/>         
       	}
 	}
       ReactDOM.render(<Hello />, document.getElementById('mydiv'));     
