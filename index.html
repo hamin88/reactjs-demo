@@ -13,34 +13,42 @@
       	  
 	constructor(props) {
         	super(props)
-        	this.object = {
-            		message: '1' 
+        	this.state = {
+            		ip: '1' 
         	};
-    }
+    	}
+	componentDidMount() {
+	
+		   fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
+			"method": "GET",
+			"headers": {
+				"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
+				"x-rapidapi-key": "844e376f46mshe8d6f7e482560ebp14ac84jsnb3c23307283d"
+			}
+		})
+		.then(response => {
+			console.log(response);
+			response.json().then(function(data) {
+				console.log(data);
+				//this.data.ip =data;
+				this.setState(data);
+
+			});
+		})
+		.catch(err => {
+			console.log(err);
+		});
+
+ 	 axios.get(`http://exmaple.com/blog/${this.props.id}`)
+    	 	.then(response => this.setState(response.data))
+	}
       
         render() {
-          return <h1>{this.object.message}</h1>
+          return <h1>{this.state.ip}</h1>
         }
       }
 
-      ReactDOM.render(<Hello />, document.getElementById('mydiv'));
-      
-   fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
-	"method": "GET",
-	"headers": {
-		"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
-		"x-rapidapi-key": "844e376f46mshe8d6f7e482560ebp14ac84jsnb3c23307283d"
-	}
-})
-.then(response => {
-	console.log(response);
-	response.json().then(function(data) {
-        	console.log(data);
-      	});
-})
-.catch(err => {
-	console.log(err);
-});
+      ReactDOM.render(<Hello />, document.getElementById('mydiv'));      
     </script>
   </body>
 </html>
