@@ -24,24 +24,14 @@
 			"headers": {
 				"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
 				"x-rapidapi-key": "844e376f46mshe8d6f7e482560ebp14ac84jsnb3c23307283d"
-			}
-		})
-		.then(response => {
-			console.log(response);
-			response.json().then(function(data) {
-				console.log(data);
-				//this.data.ip =data;
-				this.setState(data);
-
-			});
-		})
-		.catch(err => {
-			console.log(err);
-		});
-
- 	 axios.get(`http://exmaple.com/blog/${this.props.id}`)
-    	 	.then(response => this.setState(response.data))
-	}
+			}		
+		}).then(res => res.json())
+      		.then(
+		(result) => {
+		  this.setState({
+		    id: result.ip
+		  });
+	}  
       
         render() {
           return <h1>{this.state.ip}</h1>
