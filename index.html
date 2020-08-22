@@ -17,22 +17,13 @@
             		ip: '',
 		    	city:'',
 		    	country:''
-        	};
-		this.handleChange();
+        	};		 
     	}   
 	 handleChange = (e) =>{ 
-	        if(e){
-			this.setState({ip: e.target.value});
-		}else{
-		this.state = {
-            		ip: '',
-		    	city:'',
-		    	country:''
-        	};
-		}    		
+	        this.setState({ip: e.target.value});		      		
 		var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
 	 	if(e.target.value){
-	 		url = url +'?ip='+e.target.value;
+	 		url = url +'?ip='+this.state.ip;
 	 	}
 		fetch(url, {
 			"method": "GET",
