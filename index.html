@@ -10,12 +10,16 @@
 
     <script type="text/babel">
       class Hello extends React.Component {
-      	 getInitialState: function() {
-    		return {message: 'Hello!'};
-  	 },
+      	  
+	constructor(props) {
+        	super(props)
+        	this.object = {
+            		message: '1' 
+        	};
+    }
       
         render() {
-          return <h1>{message}</h1>
+          return <h1>{object.message}</h1>
         }
       }
 
