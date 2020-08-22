@@ -40,16 +40,10 @@
 	        });
   	}
         render() {
-	 const {ip} = this.state;	  
-	 var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
-	 if(this.state.ip){
-	 	url = url +'?ip='+this.state.ip;
-	 }
-	  	  
-          return <input type="text" value={this.state.ip} onChange={this.handleChange}/><h1>{this.state.ip}</h1>;
-        }
-      }
-
+	 	const {ip} = this.state;	  	   	  
+          	return <input type="text" value={this.state.ip} onChange={this.handleChange}/><h1>{this.state.ip}</h1>;        
+      	}
+	}
       ReactDOM.render(<Hello />, document.getElementById('mydiv'));     
     </script>
   </body>
