@@ -10,27 +10,8 @@
     <div id="mydiv"></div>
 
     <script type="text/babel">
-class App extends React.Component {
-  constructor() {
-    super();
-    this.state = {ip : ''}
-  }
-  handleChange = (e) =>{ 
-    this.setState({value: e.target.value});
-  }
-  render() {
-    return (
-    <div>
-        <input type="text" value={this.state.ip} onChange={this.handleChange}/>
-        <div>{this.state.ip}</div>
-    </div>
-   )
-  }
-}
-ReactDOM.render(<App/>, document.getElementById('ip'));
-
-      class Hello extends React.Component {
-      	  
+ 
+      class Hello extends React.Component {      	  
 	constructor(props) {
         	super(props);
         	this.state = {
@@ -39,15 +20,11 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
     	}   
 	 handleChange = (e) =>{ 
     		this.setState({ip: e.target.value});
-  	}
-        render() {
-	 const {ip} = this.state;
-	  
-	 var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
-	 if(this.state.ip){
-	 	url = url +'?ip='+this.state.ip;
-	 }
-	 fetch(url, {
+		var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
+	 	if(e.target.value){
+	 		url = url +'?ip='+e.target.value;
+	 	}
+		fetch(url, {
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
@@ -61,12 +38,19 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
 		    ip: result.ip
 		  });
 	        });
-		  
+  	}
+        render() {
+	 const {ip} = this.state;	  
+	 var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
+	 if(this.state.ip){
+	 	url = url +'?ip='+this.state.ip;
+	 }
+	  	  
           return <input type="text" value={this.state.ip} onChange={this.handleChange}/><h1>{this.state.ip}</h1>;
         }
       }
 
-      ReactDOM.render(<Hello />, document.getElementById('mydiv'));      
+      ReactDOM.render(<Hello />, document.getElementById('mydiv'));     
     </script>
   </body>
 </html>
