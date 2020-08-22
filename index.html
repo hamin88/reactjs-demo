@@ -36,7 +36,10 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
         	this.state = {
             		ip: '3' 
         	};
-    	}       
+    	}   
+	 handleChange = (e) =>{ 
+    		this.setState({ip: e.target.value});
+  	}
         render() {
 	 const {ip} = this.state;
 	  
@@ -53,12 +56,13 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
 		}).then(res => res.json())
       		.then(
 		(result) => {
+		  console.log(result); 
 		  this.setState({
 		    ip: result.ip
 		  });
 	        });
 		  
-          return <h1>{this.state.ip}</h1>;
+          return <input type="text" value={this.state.ip} onChange={this.handleChange}/><h1>{this.state.ip}</h1>;
         }
       }
 
