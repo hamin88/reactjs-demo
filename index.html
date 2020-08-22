@@ -20,10 +20,10 @@
         	};		 
     	}   
 	 handleChange = (e) =>{ 
-	        this.setState({ip: e.target.value});		      		
+	        //this.setState({ip: e.target.value});		      		
 		var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
 	 	if(e.target.value){
-	 		url = url +'?ip='+this.state.ip;
+	 		url = url +'?ip='+e.target.value;
 	 	}
 		fetch(url, {
 			"method": "GET",
