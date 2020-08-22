@@ -21,13 +21,13 @@ class App extends React.Component {
   render() {
     return (
     <div>
-        <input type="text" value={this.state.value} onChange={this.handleChange}/>
+        <input type="text" value={this.state.ip} onChange={this.handleChange}/>
         <div>{this.state.ip}</div>
     </div>
    )
   }
 }
-//ReactDOM.render(<App/>, document.getElementById('ip'));
+ReactDOM.render(<App/>, document.getElementById('ip'));
 
       class Hello extends React.Component {
       	  
@@ -62,7 +62,7 @@ class App extends React.Component {
         }
       }
 
-      ReactDOM.render(<App/><Hello />, document.getElementById('mydiv'));      
+      ReactDOM.render(<Hello />, document.getElementById('mydiv'));      
     </script>
   </body>
 </html>
