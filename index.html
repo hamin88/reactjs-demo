@@ -14,12 +14,12 @@
 	constructor(props) {
         	super(props)
         	this.state = {
-            		ip: '1' 
+            		ip: '3' 
         	};
-    	}
-	componentDidMount() {
-	
-		   fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
+    	}       
+        render() {
+	 const {ip} = this.state;
+	 fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
@@ -29,13 +29,10 @@
       		.then(
 		(result) => {
 		  this.setState({
-		    id: result.ip
+		    ip: result.ip
 		  });
-	}  
-      
-        render() {
-	 const {ip} = this.state;
-          return <h1>{this.state.ip}</h1>
+		  
+          return <h1>{this.state.ip}</h1>;
         }
       }
 
