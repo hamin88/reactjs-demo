@@ -13,7 +13,7 @@
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {value : ''}
+    this.state = {ip : ''}
   }
   handleChange = (e) =>{ 
     this.setState({value: e.target.value});
@@ -22,12 +22,12 @@ class App extends React.Component {
     return (
     <div>
         <input type="text" value={this.state.value} onChange={this.handleChange}/>
-        <div>{this.state.value}</div>
+        <div>{this.state.ip}</div>
     </div>
    )
   }
 }
-ReactDOM.render(<App/>, document.getElementById('ip'));
+//ReactDOM.render(<App/>, document.getElementById('ip'));
 
       class Hello extends React.Component {
       	  
@@ -39,7 +39,12 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
     	}       
         render() {
 	 const {ip} = this.state;
-	 fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
+	  
+	 var url = 'https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/';
+	 if(this.state.ip){
+	 	url = url +'?ip='+this.state.ip;
+	 }
+	 fetch(url, {
 			"method": "GET",
 			"headers": {
 				"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
@@ -57,7 +62,7 @@ ReactDOM.render(<App/>, document.getElementById('ip'));
         }
       }
 
-      ReactDOM.render(<Hello />, document.getElementById('mydiv'));      
+      ReactDOM.render(<App/><Hello />, document.getElementById('mydiv'));      
     </script>
   </body>
 </html>
