@@ -44,7 +44,7 @@
   	}
         render() {
 	 	const {ip} = this.state;	  	   	  
-          	return <input type="text" value={this.state.ip} onChange={this.handleChange}/><input type="text" value={this.state.city},{this.state.country}/>         
+          	return <div><input type="text" value={this.state.ip} onChange={this.handleChange}/><input type="text" value={this.state.city},{this.state.country}/></div>         
       	}
 	}
       ReactDOM.render(<Hello />, document.getElementById('mydiv'));     
