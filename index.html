@@ -15,7 +15,21 @@
         }
       }
 
-      ReactDOM.render(<Hello />, document.getElementById('mydiv'))
+      ReactDOM.render(<Hello />, document.getElementById('mydiv'));
+      
+   fetch("https://ip-geolocation-ipwhois-io.p.rapidapi.com/json/", {
+	"method": "GET",
+	"headers": {
+		"x-rapidapi-host": "ip-geolocation-ipwhois-io.p.rapidapi.com",
+		"x-rapidapi-key": "844e376f46mshe8d6f7e482560ebp14ac84jsnb3c23307283d"
+	}
+})
+.then(response => {
+	console.log(response);
+})
+.catch(err => {
+	console.log(err);
+});
     </script>
   </body>
 </html>
