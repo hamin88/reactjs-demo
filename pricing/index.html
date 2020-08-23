@@ -16,6 +16,17 @@
       display:inline-block;
       margin:10px;
    }
+
+    input{
+        width:100%;
+        height:100%;
+    }
+    .searchLabel{
+        margin-top:5px;
+    }
+    .searchPanel{        
+        margin:10px;
+    }
 </style>
     
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
@@ -28,49 +39,79 @@
 <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
 <script type="text/babel">
-
-
+ 
 function Menu(props){
       //it returns the reusable code that
       //we want to render on actual html page
       return(
-        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
-      <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="#">Features</a>
-        <a class="p-2 text-dark" href="#">Enterprise</a>
-        <a class="p-2 text-dark" href="#">Support</a>
-        <a class="p-2 text-dark" href="#">Pricing</a>
+        <div className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 className="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <nav className="my-2 my-md-0 mr-md-3">
+        <a className="p-2 text-dark" href="#">Features</a>
+        <a className="p-2 text-dark" href="#">Enterprise</a>
+        <a className="p-2 text-dark" href="#">Support</a>
+        <a className="p-2 text-dark" href="#">Pricing</a>
       </nav>
-      <a class="btn btn-outline-primary" href="#">Sign up</a>
+      <a className="btn btn-outline-primary" href="#">Sign up</a>
     </div>
       );
    }
    
+function SearchPanel(props){
+      //it returns the reusable code that
+      //we want to render on actual html page
+      return(
+
+        <div className="searchPanel">                    
+        <form action="#">
+        <div className="container">       
+          <div className="row">
+             <div className="col col-md-1">
+                <h4><label className= "searchLabel">City</label></h4>
+             </div>
+             <div className="col col-md-2">
+                <select className="form-control" id="sel1">
+                <option>Ahemdabad</option>
+                <option>Vadodra</option>
+                <option>Surat</option>
+                <option>Rajkot</option>
+                </select>
+            </div>
+            <div className="col col-md-9">
+                <input type="text" placeholder="Search.." name="search"/> 
+              </div> 
+        </div>
+        </div>
+            </form>
+          </div>
+        
+            );
+   }
    function Pricing(props){
    return(
-   <div class="card mb-4 box-shadow">
-          <div class="card-header">
-            <h4 class="my-0 font-weight-normal">{props.plan}</h4>
+  <div className="card mb-4 box-shadow">
+          <div className="card-header">
+            <h4 className="my-0 font-weight-normal">{props.plan}</h4>
           </div>
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
+          <div className="card-body">
+            <h1 className="card-title pricing-card-title">$0 <small className="text-muted">/ mo</small></h1>
+            <ul className="list-unstyled mt-3 mb-4">
               <li>10 users included</li>
               <li>2 GB of storage</li>
               <li>Email support</li>
               <li>Help center access</li>
             </ul>
-            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up</button>
+            <button type="button" className="btn btn-lg btn-block btn-outline-primary">Sign up</button>
           </div>
         </div>
-         );
+         ); 
    } 
    var app= (
       <div>
-         <Menu/>         
-         <div class="container">
-            <div class="card-deck mb-3 text-center">
+         <Menu/>
+         <SearchPanel/>
+         <div className="container">          
+            <div className="card-deck mb-3 text-center">
                 <Pricing plan="Free"/><Pricing plan="Stater"/><Pricing plan="Pro"/>
             </div>
             </div>
@@ -82,4 +123,4 @@ function Menu(props){
 <body>
     <div id="app"></div>
 </body>
-</html>
+</html> 
