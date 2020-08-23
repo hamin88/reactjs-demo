@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+<title>React Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    
+<style>
+   .player{
+      border:1px solid #eee;
+      width:200px;
+      box-shadow:0 2px 2px #ccc;
+      padding: 22px;
+      display:inline-block;
+      margin:10px;
+   }
+</style>
+    
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>    
+
+<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+<!-- Load React. -->
+<!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+<script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+<script type="text/babel">
+
+
+function Menu(props){
+      //it returns the reusable code that
+      //we want to render on actual html page
+      return(
+        <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
+      <h5 class="my-0 mr-md-auto font-weight-normal">Company name</h5>
+      <nav class="my-2 my-md-0 mr-md-3">
+        <a class="p-2 text-dark" href="#">Features</a>
+        <a class="p-2 text-dark" href="#">Enterprise</a>
+        <a class="p-2 text-dark" href="#">Support</a>
+        <a class="p-2 text-dark" href="#">Pricing</a>
+      </nav>
+      <a class="btn btn-outline-primary" href="#">Sign up</a>
+    </div>
+      );
+   }
+   
+   function Pricing(props){
+   return(
+   <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">{props.plan}</h4>
+          </div>
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <button type="button" class="btn btn-lg btn-block btn-outline-primary">Sign up</button>
+          </div>
+        </div>
+         );
+   } 
+   var app= (
+      <div>
+         <Menu/>         
+         <div class="container">
+            <div class="card-deck mb-3 text-center">
+                <Pricing plan="Free"/><Pricing plan="Stater"/><Pricing plan="Pro"/>
+            </div>
+            </div>
+      </div>
+   );
+   ReactDOM.render(app,document.querySelector('#app'));
+</script>
+    </head>
+<body>
+    <div id="app"></div>
+</body>
+</html>
